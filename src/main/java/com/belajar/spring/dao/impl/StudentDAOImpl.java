@@ -43,27 +43,6 @@ public class StudentDAOImpl implements StudentDAO {
         return param;
     }
 
-    @Override
-    public Student update(Student param) {
-        String sql = "UPDATE " + Table.TABLE_STUDENT + " SET " +
-                "name = ?, " +
-                "address = ? " +
-                "WHERE id =  ? ";
-
-        jdbcTemplate.update(sql,
-                param.getName(),
-                param.getAddress(),
-                param.getId());
-
-        return param;
-    }
-
-    @Override
-    public int delete(Student param) {
-        String sql = "DELETE FROM " + Table.TABLE_STUDENT + " WHERE id = ? ";
-
-        return jdbcTemplate.update(sql, param.getId());
-    }
 
     @Override
     public List<Student> find() {
